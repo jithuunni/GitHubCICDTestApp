@@ -10,8 +10,10 @@ function GetCourses() {
         url: _url,
         type: 'GET',
         dataType: 'json',
-        success: function (result) {
-            console.log(result);
+        success: function (result) {            
+            $(result).each(function (index, item) {                
+                $("<p>").html(item.Name).appendTo($("#dvCourseList"));
+            });
         },
         error: function (err) {
             console.log(err);
